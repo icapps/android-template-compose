@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">icapps compose</string>
+
+    <string name="generic_error_title" >Er ging iets mis</string>
+    <string name="generic_error_message" >Het verzoek kon niet worden voltooid.</string>
+
+    <string name="generic_button_retry">Probeer opnieuw</string>
+    <string name="generic_button_reload">Herlaad</string>
+
+    <string name="home_title">icapps compose voorbeeld</string>
+    <string name="home_description">Template applicatie die gebruikt kan worden om Android applicaties te ontwikkelen met Jetpack Compose.</string>
+    <string name="home_button_settings">Instellingen</string>
+
+    <string name="example_title">Voorbeeld scherm</string>
+    <string name="example_fact_title">Feit</string>
+
+    <string name="settings_language">Taal</string>
+    <string name="settings_language_dialog_title">Selecteer taal</string>
+    <string name="settings_title">Instellingen</string>
+</resources>

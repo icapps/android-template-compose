@@ -1,0 +1,65 @@
+dependencies {
+    def nav_version = "2.5.1"
+    def compose_version = '1.3.0-alpha03'
+
+    implementation 'androidx.appcompat:appcompat:1.6.0-beta01'
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+    implementation 'androidx.activity:activity-compose:1.5.1'
+    implementation 'androidx.core:core-splashscreen:1.0.0'
+
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui-util:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling:$compose_version"
+
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.material3:material3:1.0.0-alpha16"
+    implementation "androidx.compose.material3:material3-window-size-class:1.0.0-alpha16"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-compose:$nav_version"
+    
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+    implementation "androidx.datastore:datastore:1.0.0"
+
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    implementation "com.google.dagger:hilt-android:2.41"
+
+    implementation platform('com.google.firebase:firebase-bom:30.3.1')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3"
+
+    implementation "com.google.accompanist:accompanist-pager:0.26.1-alpha"
+    implementation 'com.google.accompanist:accompanist-flowlayout:0.26.1-alpha'
+    implementation "com.google.accompanist:accompanist-navigation-material:0.26.1-alpha"
+
+    implementation "com.icapps.android:architecture:0.5.2"
+
+    implementation "io.coil-kt:coil:2.1.0"
+    implementation "io.coil-kt:coil-compose:2.1.0"
+
+    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.7"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
+
+    debugImplementation 'com.chimerapps.niddler:niddler:1.7.0'
+    alphaImplementation 'com.chimerapps.niddler:niddler:1.7.0'
+    betaImplementation 'com.chimerapps.niddler:niddler:1.7.0'
+    releaseImplementation 'com.chimerapps.niddler:niddler-noop:1.7.0'
+    kapt "com.google.dagger:hilt-compiler:2.41"
+
+    testImplementation 'junit:junit:4.13.2'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+}
