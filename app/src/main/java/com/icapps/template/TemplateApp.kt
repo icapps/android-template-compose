@@ -6,7 +6,7 @@ import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
 @HiltAndroidApp
-class PortfolioApp : Application() {
+class TemplateApp : Application() {
 
     @Inject
     lateinit var niddler: AndroidNiddler

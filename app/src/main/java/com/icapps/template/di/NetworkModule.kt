@@ -4,7 +4,7 @@ import android.content.Context
 import com.chimerapps.niddler.core.AndroidNiddler
 import com.chimerapps.niddler.interceptor.okhttp.NiddlerOkHttpInterceptor
 import com.icapps.template.R
-import com.icapps.template.PortfolioApp
+import com.icapps.template.TemplateApp
 import com.icapps.template.data.network.ApiService
 import com.icapps.template.data.network.RequestConstants
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -44,7 +44,7 @@ object NetworkModule {
     fun providesNiddler(@ApplicationContext context: Context): AndroidNiddler =
         AndroidNiddler.Builder()
             .setPort(0)
-            .setNiddlerInformation(AndroidNiddler.fromApplication(context as PortfolioApp))
+            .setNiddlerInformation(AndroidNiddler.fromApplication(context as TemplateApp))
             .setMaxStackTraceSize(10)
             .build()
 

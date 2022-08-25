@@ -4,26 +4,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
 
-private val LocalThemeColors = staticCompositionLocalOf { TemplateColors }
-private val LocalThemeTypography = staticCompositionLocalOf { TemplateTypography }
+private val DefaultColors = Colors()
+private val LocalThemeColors = staticCompositionLocalOf { DefaultColors }
+private val LocalThemeTypography = staticCompositionLocalOf { Typography(DefaultColors) }
 
 object TemplateTheme {
-
-    val colors: TemplateColors
+    val colors: Colors
         @Composable
         get() = LocalThemeColors.current
-    val typography: TemplateTypography
+
+    val typography: Typography
         @Composable
         get() = LocalThemeTypography.current
 }
 
 @Composable
-fun TemplateAppTheme(
+fun TemplateTheme(
+    colors: Colors = TemplateTheme.colors,
+    typography: Typography = TemplateTheme.typography,
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
-        LocalThemeColors provides LocalThemeColors.current,
-        LocalThemeTypography provides LocalThemeTypography.current,
+        LocalThemeColors provides colors,
+        LocalThemeTypography provides typography,
         content = content
     )
 }

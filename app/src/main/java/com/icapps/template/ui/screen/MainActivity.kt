@@ -18,7 +18,6 @@ import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.icapps.template.ui.component.common.TemplateBottomSheet
-import com.icapps.template.ui.theme.TemplateAppTheme
 import com.icapps.template.ui.theme.TemplateTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,15 +31,16 @@ class MainActivity : AppCompatActivity(){
         ExperimentalMaterialNavigationApi::class
     )
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState) // Initialize auto logout helper
+        super.onCreate(savedInstanceState)
         // Disable fitSystemWindows (content under status bar for dialogs)
-        WindowCompat.setDecorFitsSystemWindows(window, false) // Set content
-        setContent { // Setup Nav controller
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        // Set content
+        setContent {
             val windowSizeClass = calculateWindowSizeClass(this)
             val bottomSheetNavigator = rememberBottomSheetNavigator()
-            navController = rememberNavController(bottomSheetNavigator) // Apply theme
-
-            TemplateAppTheme { // Allow for bottom she dialogs
+            navController = rememberNavController(bottomSheetNavigator)
+            // Apply theme
+            TemplateTheme {
                 TemplateBottomSheet(bottomSheetNavigator) {
                     NavHost(
                         modifier = Modifier
