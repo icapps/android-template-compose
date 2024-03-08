@@ -1,11 +1,14 @@
 package com.icapps.template.di
 
 import android.content.Context
+import buildKtorHttpClient
 import com.chimerapps.niddler.core.AndroidNiddler
 import com.chimerapps.niddler.interceptor.okhttp.NiddlerOkHttpInterceptor
 import com.icapps.template.R
 import com.icapps.template.TemplateApp
 import com.icapps.template.data.network.ApiService
+import com.icapps.template.data.network.ExampleService
+import com.icapps.template.data.network.ExampleServiceImpl
 import com.icapps.template.data.network.RequestConstants
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
@@ -13,6 +16,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import io.ktor.client.HttpClient
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -93,4 +97,15 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideKtorHttpClient(
+        @Named(HiltConstants.SERVICE_URL) baseUrl: String,
+        okHttpClient: OkHttpClient,
+    ): HttpClient = buildKtorHttpClient(baseUrl, okHttpClient)
+
+    @Singleton
+    @Provides
+    fun provideExampleService(httpClient: HttpClient): ExampleService = ExampleServiceImpl(httpClient)
 }

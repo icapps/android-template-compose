@@ -67,4 +67,11 @@ dependencies {
 
     // 3rd party dependencies
     implementation libs.timber
+
+    // Ktor
+//    implementation libs.ktor.client.android
+//    implementation libs.ktor.client.serialization
+//    implementation libs.ktor.client.logging.jvm
+
+    implementation libs.bundles.ktor
 }

@@ -31,6 +31,7 @@ kotlin = "1.9.22"
 kotlinx_collections_immutable = "0.3.7"
 kotlinx_coroutines = "1.7.3"
 kotlinx_serialization = "1.6.2"
+ktor = "2.3.9"
 ksp = "1.9.22-1.0.16"
 mockk = "1.13.8"
 niddler = "1.7.0"
@@ -94,6 +95,14 @@ firebase_analytics = { group = "com.google.firebase", name = "firebase-analytics
 kotlinx_serialization_json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx_serialization" }
 kotlinx_collections_immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx_collections_immutable" }
 
+# Ktor
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-client-content-negotation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-logging-jvm = { module = "io.ktor:ktor-client-logging-jvm", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktor" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
 # Lifecycle
 androidx_lifecycle_runtime_ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidx_lifecycle" }
 androidx_lifecycle_runtime_compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx_lifecycle" }
@@ -144,6 +153,7 @@ coil = ["coil", "coil_svg", "coil_compose", "coil_network"]
 compose = ["androidx_compose_animation", "androidx_compose_foundation", "androidx_compose_runtime", "androidx_compose_ui", "androidx_compose_ui_util", "androidx_compose_material3", "androidx_compose_material3_window_size"]
 compose_tools = ["androidx_compose_ui_tooling", "androidx_compose_ui_tooling_preview"]
 espresso = ["androidx_test_espresso_contrib", "androidx_test_espresso_core"]
+ktor = ["ktor-client-content-negotation", "ktor-client-logging-jvm", "ktor-client-okhttp", "ktor-client-serialization", "ktor-serialization-json"]
 okhttp = ["okhttp", "okhttp_logging_interceptor", "okhttp_urlconnection"]
 
 [plugins]
