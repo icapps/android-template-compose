@@ -131,6 +131,8 @@ android {
     }
 }
 
+registerKtLintTasks()
+
 // Execute ktLintFormat before every build
 tasks.named("preBuild") {
     dependsOn("ktLintFormat")

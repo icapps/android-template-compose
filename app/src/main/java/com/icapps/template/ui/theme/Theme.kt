@@ -22,11 +22,11 @@ object TemplateTheme {
 fun TemplateTheme(
     colors: Colors = TemplateTheme.colors,
     typography: Typography = TemplateTheme.typography,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     CompositionLocalProvider(
         LocalThemeColors provides colors,
         LocalThemeTypography provides typography,
-        content = content
+        content = content,
     )
 }

@@ -24,30 +24,30 @@ sealed class MainRoute(val route: String) {
     object Example : NavRoute("example/{path}") {
         fun create(path: String) = "example/$path"
     }
-    */
+     */
 }
 
 @OptIn(ExperimentalMaterialNavigationApi::class)
 fun NavGraphBuilder.mainNavGraph(
     windowSizeClass: WindowSizeClass,
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     composable(route = MainRoute.Menu.route) {
         MenuScreen(
             windowSizeClass = windowSizeClass,
-            navController = navController
+            navController = navController,
         )
     }
     composable(route = MainRoute.Settings.route) {
         SettingsScreen(
             windowSizeClass = windowSizeClass,
-            navController = navController
+            navController = navController,
         )
     }
     bottomSheet(route = MainRoute.DialogLanguageSwitcher.route) {
         LanguageSwitcherSheet(
             windowSizeClass = windowSizeClass,
-            navController = navController
+            navController = navController,
         )
     }
 }

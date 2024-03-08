@@ -10,7 +10,6 @@ import com.icapps.template.data.network.ApiService
 import com.icapps.template.data.network.ext.networkRequest
 import com.icapps.template.data.state.NetworkDataState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
@@ -32,7 +31,7 @@ class ExampleViewModel @Inject constructor(
             scope = viewModelScope,
             deserializer = json,
             request = apiService.getExampleData(),
-            stateDispatcher = { uiState = it }
+            stateDispatcher = { uiState = it },
         )
     }
 }

@@ -3,7 +3,12 @@ package com.icapps.template.ui.component.common
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Favorite
@@ -26,7 +31,7 @@ import com.icapps.template.ui.theme.TemplateTheme
 data class TemplateBottomNavigationItem(
     val icon: ImageVector,
     val route: String,
-    val badge: Boolean
+    val badge: Boolean,
 )
 
 @Composable
@@ -34,7 +39,7 @@ fun TemplateBottomNavigation(
     modifier: Modifier = Modifier,
     currentRoute: String,
     items: List<TemplateBottomNavigationItem>,
-    onItemSelected: (String) -> Unit
+    onItemSelected: (String) -> Unit,
 ) {
     Column {
         Divider(color = TemplateTheme.colors.divider)
@@ -49,7 +54,7 @@ fun TemplateBottomNavigation(
                     icon = item.icon,
                     badge = item.badge,
                     isSelected = item.route == currentRoute,
-                    onClick = { onItemSelected(item.route) }
+                    onClick = { onItemSelected(item.route) },
                 )
             }
         }
@@ -62,7 +67,7 @@ private fun TemplateBottomNavigationItemView(
     icon: ImageVector,
     badge: Boolean,
     isSelected: Boolean,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Box(
         contentAlignment = Alignment.Center,
@@ -70,31 +75,31 @@ private fun TemplateBottomNavigationItemView(
             .clickable(
                 onClick = onClick,
                 interactionSource = NoRippleInteractionSource(),
-                indication = null
+                indication = null,
             )
-            .padding(vertical = 16.dp)
+            .padding(vertical = 16.dp),
     ) {
         val animatedColor = animateColorAsState(
             when (isSelected) {
                 true -> TemplateTheme.colors.onBackground
                 false -> TemplateTheme.colors.onSurface
-            }
+            },
         )
         Icon(
             modifier = Modifier.size(24.dp),
             imageVector = icon,
             contentDescription = null,
-            tint = animatedColor.value
+            tint = animatedColor.value,
         )
         if (badge) {
             Box(
-                modifier = Modifier.padding(start = 18.dp, bottom = 18.dp)
+                modifier = Modifier.padding(start = 18.dp, bottom = 18.dp),
             ) {
                 Box(
                     modifier = Modifier
                         .size(8.dp)
                         .clip(CircleShape)
-                        .background(TemplateTheme.colors.secondary)
+                        .background(TemplateTheme.colors.secondary),
                 )
             }
         }
@@ -107,20 +112,30 @@ private fun TemplateBottomNavigationPreview() {
     TemplateBottomNavigation(
         items = listOf(
             TemplateBottomNavigationItem(
-                Icons.Outlined.Home, "1", false
+                Icons.Outlined.Home,
+                "1",
+                false,
             ),
             TemplateBottomNavigationItem(
-                Icons.Outlined.Favorite, "2", false
+                Icons.Outlined.Favorite,
+                "2",
+                false,
             ),
             TemplateBottomNavigationItem(
-                Icons.Outlined.Search, "3", false
+                Icons.Outlined.Search,
+                "3",
+                false,
             ),
             TemplateBottomNavigationItem(
-                Icons.Outlined.ShoppingCart, "4", true
+                Icons.Outlined.ShoppingCart,
+                "4",
+                true,
             ),
             TemplateBottomNavigationItem(
-                Icons.Outlined.Settings, "5", false
-            )
+                Icons.Outlined.Settings,
+                "5",
+                false,
+            ),
         ),
         currentRoute = "1",
         onItemSelected = { },

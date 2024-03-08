@@ -27,31 +27,32 @@ fun TemplateButton(
     text: String,
     @DrawableRes icon: Int? = null,
     enabled: Boolean = true,
-    onClick: (() -> Unit)
+    onClick: (() -> Unit),
 ) {
     val alpha = when (enabled) {
         true -> 1F
         false -> 0.75F
     }
-    Box(modifier = modifier
-        .clip(RoundedCornerShape(50))
-        .background(TemplateTheme.colors.primary.copy(alpha = alpha))
-        .clickable(enabled = enabled) { onClick() }
-        .padding(horizontal = 16.dp, vertical = 12.dp)
-        .alpha(alpha)
+    Box(
+        modifier = modifier
+            .clip(RoundedCornerShape(50))
+            .background(TemplateTheme.colors.primary.copy(alpha = alpha))
+            .clickable(enabled = enabled) { onClick() }
+            .padding(horizontal = 16.dp, vertical = 12.dp)
+            .alpha(alpha),
     ) {
         if (icon != null) {
             Icon(
                 painter = painterResource(id = icon),
                 contentDescription = null,
-                modifier = Modifier.size(16.dp)
+                modifier = Modifier.size(16.dp),
             )
             Spacer(modifier = Modifier.width(8.dp))
         }
         Text(
             text = text,
             style = TemplateTheme.typography.button,
-            modifier = Modifier.align(Alignment.Center)
+            modifier = Modifier.align(Alignment.Center),
         )
     }
 }

@@ -16,5 +16,5 @@ data class Colors(
     val onBackground: Color = Color(0xFF003665),
 
     val divider: Color = Color(0xFFE4EAED),
-    val sheetScrim: Color = Color(0xB3003665) ,
+    val sheetScrim: Color = Color(0xB3003665),
 )
