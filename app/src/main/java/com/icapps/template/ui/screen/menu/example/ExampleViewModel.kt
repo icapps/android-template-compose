@@ -11,7 +11,6 @@ import com.icapps.template.data.network.ExampleService
 import com.icapps.template.data.network.ext.networkRequest
 import com.icapps.template.data.state.NetworkDataState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
@@ -29,25 +28,12 @@ class ExampleViewModel @Inject constructor(
         requestExampleData()
     }
 
-    fun requestExampleDataTest() {
+    fun requestExampleData() {
         networkRequest(
             scope = viewModelScope,
             deserializer = json,
-            request = apiService.getExampleData(),
-            stateDispatcher = { uiState = it }
+            request = { exampleService.getFact() },
+            stateDispatcher = { uiState = it },
         )
-    }
-
-    fun requestExampleData() {
-//        networkRequest(
-//            scope = viewModelScope,
-//            deserializer = json,
-//            request = apiService.getExampleData(),
-//            stateDispatcher = { uiState = it },
-//        )
-        viewModelScope.launch {
-            val response = exampleService.getFact()
-            uiState = NetworkDataState.Success(response)
-        }
     }
 }

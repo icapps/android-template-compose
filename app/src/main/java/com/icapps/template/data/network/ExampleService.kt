@@ -6,9 +6,11 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 
 interface ExampleService {
-    suspend fun getFact(): ExampleResponse
+    suspend fun getFact(): Result<ExampleResponse>
 }
 
 class ExampleServiceImpl(private val client: HttpClient) : ExampleService {
-    override suspend fun getFact(): ExampleResponse = client.get("/fact").body()
+    override suspend fun getFact(): Result<ExampleResponse> = runCatching {
+        client.get("/fact").body()
+    }
 }
