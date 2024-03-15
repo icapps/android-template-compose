@@ -23,7 +23,7 @@ import com.icapps.template.ui.theme.TemplateTheme
 fun ErrorComponent(
     error: TemplateServiceError?,
     modifier: Modifier = Modifier,
-    retryClickListener: (() -> Unit)? = null
+    retryClickListener: (() -> Unit)? = null,
 ) {
     val formattedTitle = error?.message ?: stringResource(R.string.generic_error_title)
     val formattedMessage =
@@ -32,7 +32,7 @@ fun ErrorComponent(
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.padding(16.dp)
+        modifier = modifier.padding(16.dp),
     ) {
         error?.errorCode?.let {
             TemplateText(
@@ -50,7 +50,7 @@ fun ErrorComponent(
                 .fillMaxWidth(),
             text = formattedTitle,
             style = TemplateTheme.typography.subtitle.copy(
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             ),
             maxLines = 2,
         )
@@ -60,8 +60,8 @@ fun ErrorComponent(
                 .fillMaxWidth(),
             text = formattedMessage,
             style = TemplateTheme.typography.body.copy(
-                textAlign = TextAlign.Center
-            )
+                textAlign = TextAlign.Center,
+            ),
         )
         if (retryClickListener != null) {
             Spacer(modifier = Modifier.height(12.dp))
@@ -69,7 +69,8 @@ fun ErrorComponent(
                 text = stringResource(R.string.generic_button_retry),
                 onClick = {
                     retryClickListener()
-                })
+                },
+            )
         }
     }
 }

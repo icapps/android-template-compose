@@ -9,6 +9,6 @@ import com.icapps.template.R
 val HKNova = FontFamily(
     Font(
         resId = R.font.hknova_medium,
-        weight = FontWeight.Medium
+        weight = FontWeight.Medium,
     ),
 )

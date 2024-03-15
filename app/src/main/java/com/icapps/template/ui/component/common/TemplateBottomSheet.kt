@@ -12,13 +12,14 @@ import com.icapps.template.ui.theme.TemplateTheme
 @Composable
 fun TemplateBottomSheet(
     navigator: BottomSheetNavigator,
-    content: @Composable () -> Unit) {
+    content: @Composable () -> Unit,
+) {
     ModalBottomSheetLayout(
         bottomSheetNavigator = navigator,
         sheetShape = RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp),
         sheetElevation = 0.dp,
         sheetBackgroundColor = TemplateTheme.colors.background,
         scrimColor = TemplateTheme.colors.sheetScrim,
-        content = content
+        content = content,
     )
 }

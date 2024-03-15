@@ -1,11 +1,14 @@
 package com.icapps.template.ui.screen.settings
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
@@ -30,20 +33,20 @@ import com.icapps.template.ui.theme.TemplateTheme
 fun SettingsScreen(
     windowSizeClass: WindowSizeClass,
     navController: NavController,
-    viewModel: SettingsViewModel = hiltViewModel()
+    viewModel: SettingsViewModel = hiltViewModel(),
 ) {
     TemplateScaffold(
         topBar = {
             TemplateTopBar(title = stringResource(R.string.settings_title)) {
                 navController.popBackStack()
             }
-        }
+        },
     ) {
         Column(
             modifier = Modifier
                 .padding(it)
                 .verticalScroll(rememberScrollState())
-                .padding(16.dp)
+                .padding(16.dp),
         ) {
             Column(
                 modifier = Modifier
@@ -59,7 +62,7 @@ fun SettingsScreen(
             TemplateText(
                 text = "App version: ${BuildConfig.VERSION_NAME}",
                 style = TemplateTheme.typography.label.copy(
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 ),
                 modifier = Modifier.fillMaxWidth(),
             )

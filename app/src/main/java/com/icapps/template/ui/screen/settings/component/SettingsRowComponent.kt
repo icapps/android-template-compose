@@ -18,7 +18,7 @@ import com.icapps.template.ui.theme.TemplateTheme
 @Composable
 fun SettingsRowComponent(
     label: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Row(
         modifier = Modifier
@@ -30,12 +30,12 @@ fun SettingsRowComponent(
         TemplateText(
             text = label,
             style = TemplateTheme.typography.settingsRowLabel,
-            modifier = Modifier.weight(1F)
+            modifier = Modifier.weight(1F),
         )
         Icon(
             imageVector = Icons.Outlined.KeyboardArrowRight,
             contentDescription = null,
-            tint = TemplateTheme.colors.onBackground
+            tint = TemplateTheme.colors.onBackground,
         )
     }
 }

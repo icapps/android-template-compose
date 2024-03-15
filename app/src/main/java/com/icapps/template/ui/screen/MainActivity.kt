@@ -22,13 +22,13 @@ import com.icapps.template.ui.theme.TemplateTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     lateinit var navController: NavHostController
 
     @OptIn(
         ExperimentalMaterial3WindowSizeClassApi::class,
-        ExperimentalMaterialNavigationApi::class
+        ExperimentalMaterialNavigationApi::class,
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,16 +48,15 @@ class MainActivity : AppCompatActivity(){
                             .background(TemplateTheme.colors.background)
                             .safeDrawingPadding(),
                         navController = navController,
-                        startDestination = MainRoute.Menu.route
+                        startDestination = MainRoute.Menu.route,
                     ) {
                         mainNavGraph(
                             windowSizeClass = windowSizeClass,
-                            navController = navController
+                            navController = navController,
                         )
                     }
                 }
             }
-
         }
     }
 

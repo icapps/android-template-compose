@@ -19,7 +19,7 @@ fun TemplateTextButton(
     text: String,
     enabled: Boolean = true,
     colorOverride: Color? = null,
-    onClick: (() -> Unit)
+    onClick: (() -> Unit),
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val alpha = when (enabled) {
@@ -32,14 +32,14 @@ fun TemplateTextButton(
             .clickable(
                 enabled = enabled,
                 interactionSource = interactionSource,
-                indication = null
-            ) { onClick() }
+                indication = null,
+            ) { onClick() },
     ) {
         Text(
             text = text,
             style = TemplateTheme.typography.textButton,
             color = colorOverride ?: TemplateTheme.colors.primary,
-            modifier = Modifier.align(Alignment.Center)
+            modifier = Modifier.align(Alignment.Center),
         )
     }
 }
@@ -49,6 +49,6 @@ fun TemplateTextButton(
 private fun TemplateTextButtonPreview() {
     TemplateTextButton(
         text = "Demo Text Button",
-        onClick = {}
+        onClick = {},
     )
 }

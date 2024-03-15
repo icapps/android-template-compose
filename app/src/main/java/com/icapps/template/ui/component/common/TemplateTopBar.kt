@@ -38,7 +38,7 @@ fun TemplateTopBar(
                 text = title,
                 style = TemplateTheme.typography.appBarTitle,
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(16.dp),
             )
         },
         menuBuilder = menuBuilder,
@@ -57,7 +57,7 @@ fun TemplateTopBar(
         modifier = modifier
             .fillMaxWidth()
             .defaultMinSize(minHeight = 56.dp)
-            .background(TemplateTheme.colors.background)
+            .background(TemplateTheme.colors.background),
 
     ) {
         // Back button
@@ -67,7 +67,7 @@ fun TemplateTopBar(
                 modifier = Modifier
                     .clickable(
                         interactionSource = NoRippleInteractionSource(),
-                        indication = null
+                        indication = null,
                     ) { it.invoke() }
                     .padding(16.dp)
                     .size(24.dp),
@@ -89,7 +89,7 @@ fun TemplateTopBar(
             Row(
                 modifier = Modifier
                     .align(Alignment.CenterEnd)
-                    .padding(16.dp)
+                    .padding(16.dp),
             ) {
                 builder(this)
             }

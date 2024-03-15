@@ -16,7 +16,7 @@ fun TemplateText(
     style: TextStyle = TemplateTheme.typography.body,
     colorOverride: Color? = null,
     maxLines: Int = Int.MAX_VALUE,
-    overflow: TextOverflow = TextOverflow.Ellipsis
+    overflow: TextOverflow = TextOverflow.Ellipsis,
 ) {
     Text(
         text = text,

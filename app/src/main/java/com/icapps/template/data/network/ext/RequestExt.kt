@@ -1,12 +1,16 @@
 package com.icapps.template.data.network.ext
 
-import android.util.Log
 import com.icapps.template.data.model.error.TemplateServiceError
 import com.icapps.template.data.state.NetworkDataState
-import kotlinx.coroutines.*
-import kotlinx.serialization.decodeFromString
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import retrofit2.Call
+import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
 
 fun <T> networkRequest(
@@ -14,11 +18,11 @@ fun <T> networkRequest(
     scope: CoroutineScope,
     deserializer: Json,
     request: Call<T>,
-    stateDispatcher: (state: NetworkDataState<T>) -> Unit
+    stateDispatcher: (state: NetworkDataState<T>) -> Unit,
 ): Job {
     val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         stateDispatcher(NetworkDataState.Error())
-        Log.e("NetworkRequest", "NetworkRequest failed", throwable)
+        Timber.e(throwable, "NetworkRequest failed")
     }
     return scope.launch(exceptionHandler) {
         // Start with loading state
@@ -33,9 +37,9 @@ fun <T> networkRequest(
                 stateDispatcher(
                     NetworkDataState.Error(
                         deserializer.decodeFromString<TemplateServiceError>(
-                            response.errorBody().toString()
-                        )
-                    )
+                            response.errorBody().toString(),
+                        ),
+                    ),
                 )
             } catch (e: Exception) {
                 // If deserialization fails print stacktrace & return default error

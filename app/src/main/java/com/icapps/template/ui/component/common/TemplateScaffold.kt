@@ -20,7 +20,7 @@ fun TemplateScaffold(
     floatingActionButtonPosition: FabPosition = FabPosition.End,
     containerColor: Color = TemplateTheme.colors.background,
     contentColor: Color = TemplateTheme.colors.background,
-    content: @Composable (PaddingValues) -> Unit
+    content: @Composable (PaddingValues) -> Unit,
 ) {
     Scaffold(
         modifier = modifier,
@@ -31,6 +31,6 @@ fun TemplateScaffold(
         floatingActionButtonPosition = floatingActionButtonPosition,
         containerColor = containerColor,
         contentColor = contentColor,
-        content = content
+        content = content,
     )
 }

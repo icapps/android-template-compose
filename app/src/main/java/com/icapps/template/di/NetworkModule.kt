@@ -81,7 +81,7 @@ object NetworkModule {
     fun provideRetrofit(
         @Named(HiltConstants.SERVICE_URL) baseUrl: String,
         okHttpClient: OkHttpClient,
-        json: Json
+        json: Json,
     ): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(json.asConverterFactory(RequestConstants.REQUEST_MEDIA_TYPE.toMediaType()))
