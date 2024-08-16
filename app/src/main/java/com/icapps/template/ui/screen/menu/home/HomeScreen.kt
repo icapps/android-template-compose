@@ -16,7 +16,7 @@ import androidx.navigation.NavController
 import com.icapps.template.R
 import com.icapps.template.ui.component.common.TemplateButton
 import com.icapps.template.ui.component.common.TemplateText
-import com.icapps.template.ui.screen.MainRoute
+import com.icapps.template.ui.navigation.main.MainDestination
 import com.icapps.template.ui.theme.TemplateTheme
 
 @Composable
@@ -43,7 +43,7 @@ fun HomeScreen(
         TemplateButton(
             text = stringResource(R.string.home_button_settings),
         ) {
-            navController.navigate(MainRoute.Settings.route)
+            navController.navigate(MainDestination.Settings)
         }
     }
 }

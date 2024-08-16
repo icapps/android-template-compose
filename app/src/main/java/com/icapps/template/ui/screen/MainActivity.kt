@@ -18,13 +18,15 @@ import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.icapps.template.ui.component.common.TemplateBottomSheet
+import com.icapps.template.ui.navigation.main.MainDestination
+import com.icapps.template.ui.navigation.main.mainNavGraph
 import com.icapps.template.ui.theme.TemplateTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    lateinit var navController: NavHostController
+    private lateinit var navController: NavHostController
 
     @OptIn(
         ExperimentalMaterial3WindowSizeClassApi::class,
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             val windowSizeClass = calculateWindowSizeClass(this)
             val bottomSheetNavigator = rememberBottomSheetNavigator()
             navController = rememberNavController(bottomSheetNavigator)
+
             // Apply theme
             TemplateTheme {
                 TemplateBottomSheet(bottomSheetNavigator) {
@@ -48,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                             .background(TemplateTheme.colors.background)
                             .safeDrawingPadding(),
                         navController = navController,
-                        startDestination = MainRoute.Menu.route,
+                        startDestination = MainDestination.Menu,
                     ) {
                         mainNavGraph(
                             windowSizeClass = windowSizeClass,
@@ -61,7 +64,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-
         fun create(context: Context): Intent = Intent(context, MainActivity::class.java)
     }
 }

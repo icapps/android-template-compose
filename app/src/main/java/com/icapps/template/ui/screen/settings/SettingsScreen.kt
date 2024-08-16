@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,11 +23,10 @@ import com.icapps.template.R
 import com.icapps.template.ui.component.common.TemplateScaffold
 import com.icapps.template.ui.component.common.TemplateText
 import com.icapps.template.ui.component.common.TemplateTopBar
-import com.icapps.template.ui.screen.MainRoute
+import com.icapps.template.ui.navigation.main.MainDestination
 import com.icapps.template.ui.screen.settings.component.SettingsRowComponent
 import com.icapps.template.ui.theme.TemplateTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
     windowSizeClass: WindowSizeClass,
@@ -55,7 +53,8 @@ fun SettingsScreen(
                     .fillMaxWidth(),
             ) {
                 SettingsRowComponent(label = stringResource(R.string.settings_language)) {
-                    navController.navigate(MainRoute.DialogLanguageSwitcher.route)
+                    // TODO Remove 'route' once 'bottomSheet' becomes type safe
+                    navController.navigate(MainDestination.DialogLanguageSwitcher.route)
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
