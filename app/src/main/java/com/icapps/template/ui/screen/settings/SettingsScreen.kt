@@ -36,7 +36,7 @@ fun SettingsScreen(
     TemplateScaffold(
         topBar = {
             TemplateTopBar(title = stringResource(R.string.settings_title)) {
-                navController.popBackStack()
+                navController.navigateUp()
             }
         },
     ) {
