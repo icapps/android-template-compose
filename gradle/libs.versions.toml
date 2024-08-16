@@ -1,37 +1,38 @@
 [versions]
 # Define the dependency versions
 minSdk = "26"
-targetSdk = "34"
-compileSdk = "34"
+targetSdk = "35"
+compileSdk = "35"
 
 # BOM
 compose_bom = "2024.01.00-alpha01"
-firebase_bom = "32.7.3"
+firebase_bom = "33.1.2"
 okhttp_bom = "5.0.0-alpha.12"
 
-accompanist = "0.33.2-alpha"
-activity_compose = "1.8.2"
-android_test_core = "1.5.0"
-android_test_ext_junit = "1.1.5"
-androidx_appcompat = "1.7.0-alpha03"
-androidx_core = "1.12.0"
-androidx_lifecycle = "2.7.0"
-androidx_navigation = "2.7.7"
+accompanist = "0.34.0"
+activity_compose = "1.9.1"
+android_test_core = "1.6.1"
+android_test_ext_junit = "1.2.1"
+androidx_appcompat = "1.7.0"
+androidx_core = "1.13.1"
+androidx_lifecycle = "2.8.4"
+androidx_material_navigation = "1.7.0-beta01"
+androidx_navigation = "2.8.0-beta07"
 androidx_runtime_tracing = "1.0.0-beta01"
-androidx_splashscreen = "1.1.0-alpha02"
-build_tools = "8.3.0"
-coil = "3.0.0-alpha03"
-datastore = "1.0.0"
-espresso = "3.5.1"
-google_services_plugin = "4.4.1"
-hilt = "2.50"
+androidx_splashscreen = "1.1.0-rc01"
+build_tools = "8.5.2"
+coil = "3.0.0-alpha06"
+datastore = "1.1.1"
+espresso = "3.6.1"
+google_services_plugin = "4.4.2"
+hilt = "2.51.1"
 hilt_navigation = "1.2.0"
 junit = "4.13.2"
-kotlin = "1.9.22"
+kotlin = "2.0.0"
 kotlinx_collections_immutable = "0.3.7"
-kotlinx_coroutines = "1.7.3"
-kotlinx_serialization = "1.6.2"
-ksp = "1.9.22-1.0.16"
+kotlinx_coroutines = "1.8.0"
+kotlinx_serialization = "1.7.0"
+ksp = "2.0.0-1.0.22"
 mockk = "1.13.8"
 niddler = "1.7.0"
 retrofit = "2.9.0"
@@ -66,6 +67,7 @@ androidx_compose_bom = { group = "dev.chrisbanes.compose", name = "compose-bom",
 androidx_compose_foundation = { module = "androidx.compose.foundation:foundation" }
 androidx_compose_material3 = { module = "androidx.compose.material3:material3" }
 androidx_compose_material3_window_size = { module = "androidx.compose.material3:material3-window-size-class" }
+androidx_compose_material_navigation = { group = "androidx.compose.material", name = "material-navigation", version.ref = "androidx_material_navigation" }
 androidx_compose_runtime = { module = "androidx.compose.runtime:runtime" }
 androidx_compose_ui = { module = "androidx.compose.ui:ui" }
 androidx_compose_ui_util = { module = "androidx.compose.ui:ui-util" }
@@ -141,7 +143,7 @@ androidx_datastore = ["androidx_datastore", "androidx_datastore_preferences"]
 androidx_lifecycle = ["androidx_lifecycle_runtime_compose", "androidx_lifecycle_runtime_ktx"]
 androidx_navigation = ["androidx_navigation_compose", "androidx_navigation_ui_ktx", "androidx_navigation_fragment_ktx"]
 coil = ["coil", "coil_svg", "coil_compose", "coil_network"]
-compose = ["androidx_compose_animation", "androidx_compose_foundation", "androidx_compose_runtime", "androidx_compose_ui", "androidx_compose_ui_util", "androidx_compose_material3", "androidx_compose_material3_window_size"]
+compose = ["androidx_compose_animation", "androidx_compose_foundation", "androidx_compose_runtime", "androidx_compose_ui", "androidx_compose_ui_util", "androidx_compose_material3", "androidx_compose_material3_window_size", "androidx_compose_material_navigation"]
 compose_tools = ["androidx_compose_ui_tooling", "androidx_compose_ui_tooling_preview"]
 espresso = ["androidx_test_espresso_contrib", "androidx_test_espresso_core"]
 okhttp = ["okhttp", "okhttp_logging_interceptor", "okhttp_urlconnection"]
@@ -149,6 +151,7 @@ okhttp = ["okhttp", "okhttp_logging_interceptor", "okhttp_urlconnection"]
 [plugins]
 android_application = { id = "com.android.application", version.ref = "build_tools" }
 android_library = { id = "com.android.library", version.ref = "build_tools" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin_serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin_jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

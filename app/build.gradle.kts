@@ -11,6 +11,8 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("kotlinx-serialization")
     id("com.google.devtools.ksp")
+
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
